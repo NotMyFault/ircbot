@@ -6,6 +6,8 @@ import java.io.InputStream;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.Issue;
 
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
 
