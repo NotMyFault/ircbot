@@ -1,9 +1,9 @@
 package org.jenkinsci.backend.ircbot;
 
 import com.google.common.collect.ImmutableSortedSet;
-import junit.framework.TestCase;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.kohsuke.github.*;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -11,13 +11,11 @@ import org.pircbotx.Channel;
 import org.pircbotx.User;
 import org.pircbotx.UserLevel;
 import org.pircbotx.output.OutputChannel;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PowerMockIgnore;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 import static java.util.Collections.emptyList;
-import static org.mockito.Matchers.any;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -25,10 +23,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by slide on 11/14/2016.
  */
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(GitHub.class)
-@PowerMockIgnore("javax.net.ssl.*")
-public class IrcListenerTest extends TestCase {
+public class IrcListenerTest {
     public void testForkGithubExistingRepo() throws Exception {
         final String repoName = "jenkins";
         final String channel = "#dummy";
@@ -36,7 +31,7 @@ public class IrcListenerTest extends TestCase {
         final String owner = "bar";
         final String from = "foobar";
 
-        PowerMockito.mockStatic(GitHub.class);
+        Mockito.mockStatic(GitHub.class);
 
         GitHub gh = mock(GitHub.class);
         when(GitHub.connect()).thenReturn(gh);
@@ -74,7 +69,7 @@ public class IrcListenerTest extends TestCase {
         final String owner = "bar";
         final String from = "jenkins";
 
-        PowerMockito.mockStatic(GitHub.class);
+        Mockito.mockStatic(GitHub.class);
 
         GitHub gh = mock(GitHub.class);
         when(GitHub.connect()).thenReturn(gh);
@@ -137,7 +132,7 @@ public class IrcListenerTest extends TestCase {
         final String owner = "bar";
         final String from = "jenkins";
 
-        PowerMockito.mockStatic(GitHub.class);
+        Mockito.mockStatic(GitHub.class);
 
         GitHub gh = mock(GitHub.class);
         when(GitHub.connect()).thenReturn(gh);
@@ -209,7 +204,7 @@ public class IrcListenerTest extends TestCase {
         final String owner = "bar";
         final String from = "foobar";
 
-        PowerMockito.mockStatic(GitHub.class);
+        Mockito.mockStatic(GitHub.class);
 
         GitHub gh = mock(GitHub.class);
         when(GitHub.connect()).thenReturn(gh);

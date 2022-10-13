@@ -1,13 +1,12 @@
 package org.jenkinsci.backend.ircbot;
 
 import java.util.Map;
-import junit.framework.TestCase;
 
 /**
  * Tests for {@link IrcBotConfig}.
  * @author Oleg Nenashev <o.v.nenashev@gmail.com>
  */
-public class IrcBotConfigTest  extends TestCase {
+public class IrcBotConfigTest {
     
     public void testGetConfig() {
         System.out.println("name = " + IrcBotConfig.NAME);
